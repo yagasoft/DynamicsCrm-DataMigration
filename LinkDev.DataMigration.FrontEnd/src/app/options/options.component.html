@@ -1,0 +1,12 @@
+<div id="parent-container">
+	<div [hidden]="mode!='export'">
+		<app-export-options #exportElement></app-export-options>
+	</div>
+	<div [hidden]="mode!='import'">
+		<app-import-options #importElement></app-import-options>
+	</div>
+	<div id="footer-container">
+		<button class="btn btn-xs" (click)="mode=='export' ? exportElement.cancel() : importElement.cancel(); isVisible=false">Cancel</button>
+		<button class="btn btn-warning btn-xs" (click)="mode=='export' ? exportElement.save() : importElement.save(); isVisible=false">Save</button>
+	</div>
+</div>

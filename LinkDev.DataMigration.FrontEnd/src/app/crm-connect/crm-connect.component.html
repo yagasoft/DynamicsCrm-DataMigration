@@ -1,0 +1,60 @@
+<div id="parent-container">
+	<div id="outer-container">
+		<form (ngSubmit)="connectToCrm()" [formGroup]="form">
+			<div id="container">
+				<div class="panel panel-default">
+					<div class="heading-title panel-heading">Connection Details</div>
+					<div class="input-label-grid">
+						<label class="required">URL</label>
+						<input formControlName="Url" type="text" class="form-control" autofocus autocomplete="on">
+						<label>Credentials</label>
+						<div id="credentials">
+							<label>Domain</label>
+							<input formControlName="Domain" type="text" class="form-control" autocomplete="on">
+							<label>User Name</label>
+							<input formControlName="Username" type="text" class="form-control" autocomplete="on">
+							<label>Password</label>
+							<input formControlName="Password" type="password" class="form-control" autocomplete="on">
+						</div>
+						<label>Home Realm URI</label>
+						<input formControlName="HomeRealmUri" type="text" class="form-control" autocomplete="on">
+						<label [style.display]="authType=='OAuth' ? 'block' : 'none'">Client ID</label>
+						<input [style.display]="authType=='OAuth' ? 'block' : 'none'" formControlName="ClientId" type="text" class="form-control"
+						 autocomplete="on">
+						<label [style.display]="authType=='OAuth' ? 'block' : 'none'">Redirect URI</label>
+						<input [style.display]="authType=='OAuth' ? 'block' : 'none'" formControlName="RedirectUri" type="text" class="form-control"
+						 autocomplete="on">
+						<label [style.display]="authType=='OAuth' ? 'block' : 'none'">Token Cache Path</label>
+						<input [style.display]="authType=='OAuth' ? 'block' : 'none'" formControlName="TokenCacheStorePath" type="text" class="form-control"
+						 autocomplete="on">
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="heading-title panel-heading">Connection Options</div>
+					<div class="input-label-grid">
+						<label>Authentication Type</label>
+						<div>
+							<p-dropdown formControlName="AuthType" [options]="[{label:'AD', value:'AD'}, {label:'IFD', value:'IFD'}, {label:'OAuth', value:'OAuth'}, {label:'Office365', value:'Office365'}]"
+							 (onChange)="authType=authTypeE.value" #authTypeE></p-dropdown>
+						</div>
+						<label>Require New Instance</label>
+						<div>
+							<p-dropdown formControlName="RequireNewInstance" [options]="[{label:'', value:''}, {label:'True', value:'True'}, {label:'False', value:'False'}]"></p-dropdown>
+						</div>
+						<label [style.display]="authType=='OAuth' ? 'block' : 'none'">Login Prompt</label>
+						<div [style.display]="authType=='OAuth' ? 'block' : 'none'">
+							<p-dropdown formControlName="LoginPrompt" [autoWidth]=false [options]="[{label:'', value:''}, {label:'Always', value:'Always'}, {label:'Auto', value:'Auto'}, {label:'Never', value:'Never'}]"></p-dropdown>
+						</div>
+						<label>Threads</label>
+						<input formControlName="Threads" type="number" min="0" max="10" class="form-control">
+					</div>
+				</div>
+			</div>
+			<div id="footer">
+				<button id="connect-button" [disabled]="!form.valid" type="submit" class="btn btn-primary btn-sm">
+					Connect
+				</button>
+			</div>
+		</form>
+	</div>
+</div>

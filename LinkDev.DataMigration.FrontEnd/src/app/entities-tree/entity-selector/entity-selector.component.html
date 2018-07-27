@@ -1,0 +1,7 @@
+<div id="parent-container">
+	<p-autoComplete scrollHeight="80vh" forceSelection=true [placeholder]="placeholder" [(ngModel)]="entity" [suggestions]="filteredResults"
+	 dataKey="logicalName" field="displayName" (completeMethod)="search($event)"></p-autoComplete>
+	<button id="entity-add-button" class="btn btn-default btn-xs" (click)="addEntity()">
+		<i class="fa fa-chevron-down" aria-hidden="true"></i>
+	</button>
+</div>

@@ -1,0 +1,122 @@
+<div id="primary-container">
+	<div id="panel" class="panel panel-default">
+		<div class="heading-title panel-heading">{{record ? (record.label ? record.label : (relation ? relation.schemaName : record.logicalName)) : ''}}</div>
+		<div id="panel-body" class="panel-body">
+			<div id="actions-bar" class="space-around">
+				<div id="inner-action-bar">
+					<div id="relation-menu-button" class="dropdown">
+						<button class="btn btn-info btn-xs dropdown-toggle" type="button" data-toggle="dropdown">Add Relation
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu" #relationMenu (click)="$event.preventDefault()">
+							<li *ngFor="let relation of relations">
+								<a href="#" (click)="addRelation(relation);">[{{relation.type === 0 ? '1-N' : 'N-N'}}] {{relation.schemaName}}</a>
+							</li>
+						</ul>
+					</div>
+					&nbsp;
+					<button class="btn btn-primary btn-xs" (click)="mapValues()">Mapping</button>
+				</div>
+				<button class="btn btn-danger btn-xs" (click)="delete()">Remove</button>
+				<div id="save-bar" [style.visibility]="(recordForm.pristine && recordOptionsForm.pristine && relationForm.pristine && relationOptionsForm.pristine) ? 'hidden' : 'visible'">
+					<button class="btn btn-xs" (click)="cancel()">Cancel</button>
+					<button class="btn btn-warning btn-xs" (click)="save()">Save</button>
+				</div>
+			</div>
+			<hr />
+			<div id="record-form-parent-container">
+				<div id="record-form-container">
+					<div id="fields-container" class="space-around">
+						<form [formGroup]="recordForm">
+							<div class="form-group">
+								<label for="label">Name</label>
+								<input type="text" class="form-control" id="label" formControlName="label">
+							</div>
+							<div class="form-group">
+								<label for="logicalName">Logical Name</label>
+								<input type="text" class="form-control" id="logicalName" formControlName="logicalName" disabled>
+							</div>
+							<div class="form-group">
+								<label for="fetchXml">FetchXml</label>
+								<textarea type="text" class="form-control" id="fetchXml" rows="10" formControlName="fetchXml"></textarea>
+							</div>
+						</form>
+						<form [formGroup]="relationForm" *ngIf="relation">
+							<div class="form-group">
+								<label for="schemaName">Relation Schema Name</label>
+								<input type="text" class="form-control" id="schemaName" formControlName="schemaName" disabled>
+							</div>
+						</form>
+					</div>
+					<div id="options-container" class="space-around">
+						<form [formGroup]="recordOptionsForm" *ngIf="record">
+							<h4>Record Manipulation</h4>
+							<div class="form-group">
+								<div class="checkbox">
+									<label>
+										<input id="isCreateNewRecords" formControlName="isCreateNewRecords" type="checkbox" #createElement>Create New Records</label>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="checkbox">
+									<label>
+										<input id="isUpdateExistingRecords" formControlName="isUpdateExistingRecords" type="checkbox" #updateElement>Update Existing Records</label>
+								</div>
+							</div>
+							<div class="form-group" [style.display]="relation ?  'none' : 'block'">
+								<div class="checkbox">
+									<label>
+										<input id="isDeleteObsoleteRecords" formControlName="isDeleteObsoleteRecords" type="checkbox"> Delete Obsolete Records</label>
+								</div>
+							</div>
+							<hr />
+							<h4>Alternate Keys</h4>
+							<div class="form-group">
+								<div class="checkbox">
+									<label>
+										<input id="isUseAlternateKeysForRecord" formControlName="isUseAlternateKeysForRecord" type="checkbox"> Use Keys for Records</label>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="checkbox">
+									<label>
+										<input id="isUseAlternateKeysForLookups" formControlName="isUseAlternateKeysForLookups" type="checkbox"> Use Keys for Lookups</label>
+								</div>
+							</div>
+							<!-- TODO: implement! -->
+							<div class="form-group" [style.display]="'none'">
+								<div class="checkbox">
+									<label>
+										<input id="isClearInvalidLookups" formControlName="isClearInvalidLookups" type="checkbox"> Clear Invalid Lookups</label>
+								</div>
+							</div>
+						</form>
+						<form [formGroup]="relationOptionsForm" *ngIf="relation">
+							<hr />
+							<hr />
+							<h4>Relations</h4>
+							<div class="form-group">
+								<div class="checkbox">
+									<label>
+										<input id="isDisassociateObsoleteRelations" formControlName="isDisassociateObsoleteRelations" type="checkbox" (change)="disRelationElement.checked
+										? deleteRelationElement.checked=false : ''" #disRelationElement> Disassociate Obsolete Related Records</label>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="checkbox">
+									<label>
+										<input id="isDeleteObsoleteRelations" formControlName="isDeleteObsoleteRelations" type="checkbox" (change)="deleteRelationElement.checked ? disRelationElement.checked=false : ''"
+										 #deleteRelationElement> Delete Obsolete Related Records</label>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="value-mapping" *ngIf="isValueMappingShown">
+	<app-simple-mapping [logicalName]="record.logicalName" [targetEntityName]="mapping.targetEntityName" [mapping]="mapping.valueMappings"
+	 (finished)="onMappingFinished($event)"></app-simple-mapping>
+</div>

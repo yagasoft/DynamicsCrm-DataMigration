@@ -1,0 +1,49 @@
+<p-dialog id="options-container" [(visible)]="optionsElement.isVisible" [modal]=true [closeOnEscape]=false [closable]=false>
+	<p-header>
+		{{mode == 'export' ? 'Export Options' : 'Import Options'}}
+	</p-header>
+	<app-options [mode]='mode' #optionsElement></app-options>
+</p-dialog>
+<nav id="navigation-bar" class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header pull-left">
+			<a class="navbar-brand" href="#">Data Migration</a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li routerLinkActive="active" #exportLink>
+				<a routerLink="export" (click)="mode='export'">Export</a>
+			</li>
+			<li routerLinkActive="active" #importLink>
+				<a routerLink="import" (click)="mode='import'">Import</a>
+			</li>
+		</ul>
+		<ul id="options-container" class="nav navbar-nav pull-right" *ngIf="exportLink.classList.contains('active') || importLink.classList.contains('active')">
+			<li>
+				<a href="#" (click)="optionsElement.isVisible=true; false">&nbsp;</a>
+			</li>
+		</ul>
+		<ul id="manage-menu-button" class="nav navbar-nav pull-right">
+			<li class="dropdown" *ngIf="exportLink.classList.contains('active')">
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#">Manage
+					<span class="caret"></span>
+				</a>
+				<ul id="manage-dropdown-menu" class="dropdown-menu">
+					<li>
+						<a href="#" (click)="newConfig(); false">New</a>
+					</li>
+					<li>
+						<input type="file" id="load-file-input" name="file" (change)="loadConfig($event)" #loadFileInput />
+						<a href="#" (click)="onLoadConfigClick(loadFileInput)">Load</a>
+					</li>
+					<li>
+						<a href="#" (click)="saveConfig(); false">Save</a>
+					</li>
+					<li>
+						<a href="#" (click)="exportData(); false">Export</a>
+					</li>
+				</ul>
+			</li>
+
+		</ul>
+	</div>
+</nav>

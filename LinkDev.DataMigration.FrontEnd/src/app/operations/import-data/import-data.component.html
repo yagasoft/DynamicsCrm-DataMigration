@@ -1,0 +1,10 @@
+<div id="parent-container">
+	<div id="container">
+		<div id="load-file-container">
+			<input type="file" id="load-file-input" class="form-control-file" name="file" #loadFileInput />
+		</div>
+		<div id="import-button-container">
+			<button class="btn btn-primary" [disabled]="isImporting" (click)="importData(loadFileInput)">Import</button>
+		</div>
+	</div>
+</div>

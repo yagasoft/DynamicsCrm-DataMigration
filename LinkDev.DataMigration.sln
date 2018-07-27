@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2006
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkDev.DataMigration", "LinkDev.DataMigration\LinkDev.DataMigration.csproj", "{4C7EB5B4-D6FD-48D6-9CE6-317F10B65316}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkDev.DataMigration.Tests", "LinkDev.DataMigration.Tests\LinkDev.DataMigration.Tests.csproj", "{FE631124-9112-4061-97EB-2E301ED324EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkDev.DataMigration.WebApp", "LinkDev.DataMigration.WebApp\LinkDev.DataMigration.WebApp.csproj", "{7E833FCA-007D-4018-9893-C43D2F3D28EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkDev.DataMigration.WebApp.Tests", "LinkDev.DataMigration.WebApp.Tests\LinkDev.DataMigration.WebApp.Tests.csproj", "{B1DE6172-7148-40D7-9024-82DCAAE93DBD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "licence", "licence", "{3FE506F0-7082-49C8-8A66-6B73BE7CA93E}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C7EB5B4-D6FD-48D6-9CE6-317F10B65316}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C7EB5B4-D6FD-48D6-9CE6-317F10B65316}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C7EB5B4-D6FD-48D6-9CE6-317F10B65316}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C7EB5B4-D6FD-48D6-9CE6-317F10B65316}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE631124-9112-4061-97EB-2E301ED324EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE631124-9112-4061-97EB-2E301ED324EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE631124-9112-4061-97EB-2E301ED324EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE631124-9112-4061-97EB-2E301ED324EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E833FCA-007D-4018-9893-C43D2F3D28EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E833FCA-007D-4018-9893-C43D2F3D28EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E833FCA-007D-4018-9893-C43D2F3D28EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E833FCA-007D-4018-9893-C43D2F3D28EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1DE6172-7148-40D7-9024-82DCAAE93DBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1DE6172-7148-40D7-9024-82DCAAE93DBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1DE6172-7148-40D7-9024-82DCAAE93DBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1DE6172-7148-40D7-9024-82DCAAE93DBD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C149291B-FC8C-44A9-9094-EE0CEFCC29F5}
+	EndGlobalSection
+EndGlobal

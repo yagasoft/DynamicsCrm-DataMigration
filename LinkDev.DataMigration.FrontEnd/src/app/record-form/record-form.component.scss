@@ -1,0 +1,134 @@
+.space-around
+{
+	margin: 3px;
+}
+
+hr
+{
+	margin: 0;
+	border: 0;
+	height: 1px;
+	background-image: linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1));
+}
+
+#primary-container
+{
+	height: calc(100% - 5px);
+	width: 100%;
+	margin: 0;
+	padding: 0;
+
+	h4
+	{
+		font-size: 1.18em;
+		font-weight: bold;
+	}
+
+	#panel
+	{
+		height: calc(100% - 18px);
+		width: calc(100% - 10px);
+		margin: 5px;
+		padding: 0;
+
+		#panel-body
+		{
+			height: calc(100% - 35px);
+			width: calc(100% - 13px);
+			margin: 5px;
+			padding: 0;
+			
+			display: flex;
+			flex-direction: column;
+
+			#actions-bar
+			{
+				display: flex;
+				flex: 0 0 auto;
+				justify-content: space-between;
+				width: 100%;
+
+				margin-bottom: 5px;
+				
+				#inner-action-bar
+				{
+					display: flex;
+
+					.dropdown-menu
+					{
+						max-height: 80vh;
+						overflow-y: scroll;
+					}
+				}
+
+				#save-bar
+				{
+					display: flex;
+					justify-content: flex-end;
+
+					button
+					{
+						margin: 0 3px 0 3px;
+					}
+				}
+			}
+		
+			#record-form-parent-container
+			{
+				height: 100%;
+				width: 100%;
+				margin: 0;
+				padding: 0;
+			
+				display: flex;
+				position: relative;
+
+
+				#record-form-container
+				{
+					height: calc(100% - 20px);
+					width: 100%;
+					margin: 0;
+					padding: 0;
+
+					position: absolute;
+					top: 0;
+					left: 0;
+					
+					display: flex;
+					flex: 0 1 auto;
+
+					#fields-container
+					{
+						width: 100%;
+						overflow-y: auto;
+					}
+
+					#options-container
+					{
+						overflow-y: auto;
+						border-left: 1px solid lightgrey;
+						padding-left: 5px;
+					}
+				}
+			}
+		}
+	}
+}
+
+#value-mapping
+{
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	
+	padding: 20px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	background-color:rgba(0, 0, 0, 0.3);
+}

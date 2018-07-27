@@ -1,0 +1,11 @@
+#parent-container
+{
+	display: flex;
+	flex-direction: column;
+	margin: 0px 3px 3px 3px;
+
+	#entity-add-button
+	{
+		margin: 3px;
+	}
+}

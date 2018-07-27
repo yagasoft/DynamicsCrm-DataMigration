@@ -1,0 +1,55 @@
+<div id="parent-container">
+	<div class="panel panel-default">
+		<div class="heading-title panel-heading">'{{logicalName}}' Field Mapping</div>
+		<div id="container">
+			<div id="target-entity-outer-container">
+				<div id="target-entity-container">
+					<label for="target-entity">Target Entity</label>
+					<input id="target-entity" type="text" class="field form-control" placeholder="Enter string value" [(ngModel)]="modelTargetEntityName">
+				</div>
+			</div>
+			<hr />
+			<div id="mapping-entries" *ngFor="let mappingEntry of mappingViewModel; let i = index">
+				<div class="mapping-entry">
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" [checked]="!mappingEntry.isIgnoreValues" (change)="onChangeIsUseValues(i)"> Values</label>
+					</div>
+					<label class="required">Source</label>
+					<div class="auto-complete-container">
+						<p-autoComplete scrollHeight="50vh" [placeholder]="placeholder" [(ngModel)]="mappingEntry.sourceField" [suggestions]="filteredResults"
+						 dataKey="logicalName" field="displayName" (completeMethod)="search($event)"></p-autoComplete>
+					</div>
+					<label [for]="'sourceValue' + i">Value</label>
+					<input [id]="'sourceValue' + i" type="text" class="field form-control" placeholder="Enter string value" [disabled]="mappingEntry.isIgnoreValues"
+					 [(ngModel)]="mappingEntry.sourceValue">
+					<div id="field-type-container">
+						<ng-select [allowClear]="true" [items]="[{text: 'OptionSet', id: 11},{text: 'DateTime', id: 2},{text: 'Decimal', id: 3},{text: 'Double', id: 4},{text: 'Integer', id: 5},{text: 'Money', id: 8},{text: 'Reference', id: 6},{text: 'String', id: 14},{text: 'Guid', id: 15}]"
+						 [active]="mappingEntry.destinationFieldType ? [mappingEntry.destinationFieldType] : []" (selected)="mappingEntry.destinationFieldType=$event"
+						 (removed)="mappingEntry.destinationFieldType=null" placeholder="Change Field Type">
+						</ng-select>
+					</div>
+					<label class="required">Destination</label>
+					<div class="auto-complete-container">
+						<p-autoComplete scrollHeight="50vh" [placeholder]="placeholder" [(ngModel)]="mappingEntry.destinationField" [suggestions]="filteredResults"
+						 dataKey="logicalName" field="displayName" (completeMethod)="search($event)"></p-autoComplete>
+					</div>
+					<label [for]="'destinationValue' + i">Value</label>
+					<input [id]="'destinationValue' + i" type="text" class="field form-control" placeholder="Enter string value" [disabled]="mappingEntry.isIgnoreValues"
+					 [(ngModel)]="mappingEntry.destinationValue">
+					<button class="btn btn-danger btn-xs" (click)="remove(mappingEntry)">Remove</button>
+				</div>
+			</div>
+			<hr />
+			<div id="footer">
+				<div id="actions-bar">
+					<button class="btn btn-success btn-xs" (click)="add()">Add</button>
+				</div>
+				<div id="save-bar">
+					<button class="btn btn-default btn-xs" (click)="cancel()">Cancel</button>
+					<button class="btn btn-warning btn-xs" (click)="save()">Save</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

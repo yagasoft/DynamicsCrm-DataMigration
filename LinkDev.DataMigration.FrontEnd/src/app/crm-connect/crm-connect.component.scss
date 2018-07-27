@@ -1,0 +1,69 @@
+#parent-container
+{
+	height: 100%;
+	width: 100%;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	#outer-container
+	{
+		max-width: 70%;
+
+		#container
+		{
+			display: grid;
+			grid-template-columns: 3fr 1fr;
+			grid-template-rows: auto;
+			grid-gap: 5px;
+
+			.input-label-grid
+			{
+				display: grid;
+				grid-template-columns: max-content auto;
+				grid-template-rows: auto;
+				grid-gap: 5px;
+				align-items: center;
+
+				padding: 5px;
+			}
+
+			#credentials
+			{
+				display: flex;
+				align-items: center;
+
+				*
+				{
+					margin: 2px;
+				}
+
+				label
+				{
+					font-weight: normal;
+				}
+			}
+
+			.required:after 
+			{ 
+				content:" *";
+				color: red;
+			}
+		}
+
+		#footer
+		{
+			width: 100%;
+			text-align: center;
+			margin: 5px;
+
+			#connect-button
+			{
+				width: 100px;
+				font-weight: bold;
+			}
+		}
+	}
+}

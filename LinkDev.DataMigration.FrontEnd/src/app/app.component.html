@@ -1,0 +1,30 @@
+<simple-notifications [options]="{ pauseOnHover: true }"></simple-notifications>
+<jaspero-alerts [defaultSettings]="{ overlay: true, overlayClickToClose: false, showCloseButton: true, duration: 0 }"></jaspero-alerts>
+<p-confirmDialog [closeOnEscape]=false [closable]=false icon="fa fa-question-circle"></p-confirmDialog>
+<router-outlet></router-outlet>
+<div id="url-container" *ngIf="isConnected">Connected to: {{url}}</div>
+<div id="copyright-container" class="tooltip" (click)="isEasterEggShown = !isEasterEggShown">&copy; Ahmed el-Sawalhy - LinkDev
+	<span class="tooltiptext jump">C L I C K &nbsp; ME !!</span>
+</div>
+<div class="space fade-in" *ngIf="isEasterEggShown" (click)="isEasterEggShown = !isEasterEggShown">
+	<div class="ship">
+		<div class="ship-rotate">
+			<div class="pod"></div>
+			<div class="fuselage"></div>
+		</div>
+	</div>
+	<div class="ship-shadow"></div>
+	<div class="mars">
+		<div class="tentacle"></div>
+		<div class="flag">
+			<div class="small-tentacle"></div>
+		</div>
+		<div class="planet">
+			<div class="surface"></div>
+			<div class="crater1"></div>
+			<div class="crater2"></div>
+			<div class="crater3"></div>
+		</div>
+	</div>
+	<div class="test"></div>
+</div>

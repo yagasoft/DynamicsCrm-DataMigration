@@ -1,0 +1,99 @@
+#parent-container
+{
+	hr
+	{
+		margin: 0;
+		border: 0;
+		height: 1px;
+		background-image: linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1));
+	}
+
+	#container
+	{
+		display: flex;
+		flex-direction: column;
+		margin: 2px;
+		
+		label
+		{
+			white-space: nowrap;
+		}
+
+		#target-entity-outer-container
+		{
+			width: 100%;
+			display: flex;
+    		justify-content: center;
+			
+			#target-entity-container
+			{
+				display: flex;
+				align-items: center;
+				min-width: 400px;
+
+				#target-entity
+				{
+					margin: 6px;
+				}
+			}
+		}
+
+		.mapping-entry
+		{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			margin: 2px;
+
+			label
+			{
+				font-weight: normal;
+			}
+
+			#field-type-container
+			{
+				padding-left: 5px;
+				padding-right: 5px;
+				margin-right: 4px;
+				border-left: 1px solid black;
+				border-right: 1px solid black;
+				min-width: 161px;
+			}
+
+			.auto-complete-container
+			{
+				min-width: 160px;
+				margin: 6px;
+			}
+
+			input[type=text]
+			{
+				margin: 6px;
+				height: 30px;
+    			padding: 0px 4px;
+			}
+
+			.checkbox
+			{
+				margin-top: 5px !important;
+				padding-right: 5px;
+    			margin-right: 5px;
+    			border-right: 1px solid black;
+			}
+			
+			.required:after 
+			{ 
+				content:" *";
+				color: red;
+			}
+		}
+
+		#footer
+		{
+			display: flex;
+			margin: 3px;
+			justify-content: space-between;
+		}
+	}
+}

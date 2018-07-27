@@ -1,0 +1,28 @@
+#navigation-bar
+{
+	margin: 0;
+	margin-bottom: 2px;
+	box-shadow: 0px 7px 10px -10px rgba(0,0,0,0.57);
+
+	#manage-dropdown-menu
+	{
+		min-width: 130px;
+	}
+
+	#load-file-input
+	{
+		display: none;
+	}
+
+	#options-container
+	{
+		background: url("/assets/images/options.png") no-repeat;
+    	background-position: center; 
+	}
+
+	#options-container:hover
+	{
+		background: url("/assets/images/options-hover.png") no-repeat;
+    	background-position: center; 
+	}
+}

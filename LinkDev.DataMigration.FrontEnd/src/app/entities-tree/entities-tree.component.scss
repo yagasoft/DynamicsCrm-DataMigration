@@ -1,0 +1,13 @@
+#parent-container
+{
+	display: flex;
+	flex-direction: column;
+	
+	hr
+	{
+		margin: 0;
+		border: 0;
+		height: 1px;
+		background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+	}
+}

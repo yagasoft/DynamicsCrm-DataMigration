@@ -1,0 +1,24 @@
+<div id="parent-container">
+	<app-navigation-bar id="navigation-bar"></app-navigation-bar>
+	<router-outlet></router-outlet>
+	<div id="log-outer-container" class="panel panel-default" [class.float-log]="isLogShown">
+		<div class="panel-heading">Log Entries</div>
+		<div id="log-container">
+			<div id="log" #logElement> </div>
+			<div id="log-toolbar">
+				<button class="btn btn-default btn-xs" (click)="toggleLog()">
+					<i class="fa fa-angle-double-left" aria-hidden="true"></i>
+				</button>
+				<button class="btn btn-default btn-xs" (click)="clearLog()">
+					<i class="fa fa-times" aria-hidden="true"></i>
+				</button>
+				<button class="btn btn-default btn-xs" (click)="downloadLog()">
+					<i class="fa fa-download" aria-hidden="true"></i>
+				</button>
+			</div>
+		</div>
+	</div>
+	<button id="toggle-button" class="btn btn-default btn-xs" (click)="toggleLog()" [style.display]="isLogShown ? 'none' : 'block'">
+		<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+	</button>
+</div>
